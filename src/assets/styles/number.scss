@@ -1,0 +1,62 @@
+@font-face {
+    font-family: "icon-num"; /* Project id 3734627 */
+    src: url('//at.alicdn.com/t/c/font_3734627_eu7n4dncmxn.woff2?t=1667546546156') format('woff2'),
+    url('//at.alicdn.com/t/c/font_3734627_eu7n4dncmxn.woff?t=1667546546156') format('woff'),
+    url('//at.alicdn.com/t/c/font_3734627_eu7n4dncmxn.ttf?t=1667546546156') format('truetype'),
+    url('//at.alicdn.com/t/c/font_3734627_eu7n4dncmxn.svg?t=1667546546156#icon-num') format('svg');
+}
+
+.icon-num {
+    font-family: "icon-num" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-dot:before {
+    content: "\e617";
+}
+
+.icon-comma:before {
+    content: "\e619";
+}
+
+.icon-1:before {
+    content: "\e609";
+}
+
+.icon-0:before {
+    content: "\e60a";
+}
+
+.icon-2:before {
+    content: "\e60b";
+}
+
+.icon-5:before {
+    content: "\e60c";
+}
+
+.icon-4:before {
+    content: "\e60d";
+}
+
+.icon-6:before {
+    content: "\e60e";
+}
+
+.icon-7:before {
+    content: "\e60f";
+}
+
+.icon-3:before {
+    content: "\e610";
+}
+
+.icon-8:before {
+    content: "\e611";
+}
+
+.icon-9:before {
+    content: "\e612";
+}

@@ -1,0 +1,212 @@
+//noinspection CssInvalidFunction,CssOverwrittenProperties
+.safe-area-bottom {
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+//noinspection CssInvalidFunction,CssOverwrittenProperties
+.safe-area-top {
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
+}
+
+.hairline {
+    position: absolute;
+    box-sizing: border-box;
+    content: ' ';
+    pointer-events: none;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    border: 0 solid #ebebeb;
+    transform: scale(.5)
+}
+
+.hairline--top, .hairline--left, .hairline--right, .hairline--bottom {
+    position: relative;
+}
+
+
+.hairline--top:after {
+    @extend .hairline;
+    border-top-width: 1px
+}
+
+.hairline--left:after {
+    @extend .hairline;
+    border-left-width: 1px
+}
+
+.hairline--right:after {
+    @extend .hairline;
+    border-right-width: 1px
+}
+
+.hairline--bottom:after {
+    @extend .hairline;
+    border-bottom-width: 1px
+}
+
+.button-active::after {
+    content: ' ';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .1);
+}
+
+// 隐藏滚动条
+
+page :nth-child(n) ::-webkit-scrollbar {
+    display: none;
+    width: 0 !important;
+    height: 0 !important;
+    -webkit-appearance: none;
+    background: transparent;
+}
+
+::-webkit-scrollbar {
+    display: none;
+    width: 0 !important;
+    height: 0 !important;
+    -webkit-appearance: none;
+    background: transparent;
+}
+
+page, body, body .taro_page {
+    // 统一基础字体尺寸
+    font-size: 30px;
+    // 统一基础行高
+    line-height: 38px;
+    //background-color: #f6f6f6 !important;
+}
+
+.b {
+    font-weight: 700;
+    display: inline;
+}
+
+//noinspection CssInvalidHtmlTagReference
+.taro_page taro-swiper-core {
+    height: 300px;
+}
+
+
+.empty-address-card {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    border-radius: var(--common-radius);
+    padding: var(--space-big) var(--space-small);
+
+    .iconfont {
+        //font-size: 1.2em;
+        font-weight: 700;
+    }
+}
+
+
+.small-title {
+    font-size: .8em;
+}
+
+.vertical-goods-card {
+    border-radius: var(--common-radius);
+    overflow: hidden;
+
+    &-footer {
+        .nut-price {
+            color: #fff;
+            display: flex;
+        }
+
+        @include flex-center-between;
+
+        color: #fff;
+        background-color: #ff5d58;
+        font-size: 26px;
+        padding: 0 var(--padding-2);
+        height: 70px;
+    }
+}
+
+
+.taro-tabbar__container {
+
+    .taro_page.taro_tabbar_page {
+        max-height: 100%;
+    }
+
+    .taro-tabbar__tabbar {
+        height: unset;
+        display: none;
+
+        .weui-tabbar {
+            position: unset;
+
+            .weui-tabbar__item {
+                padding: 8px 0 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .weui-tabbar__icon {
+                    width: 54px;
+                    height: 54px;
+                }
+
+                .weui-tabbar__label {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+image,
+img {
+    vertical-align: middle;
+}
+
+button{
+    outline: none;
+}
+
+.sub-text-1 {
+    font-size: .9em;
+    color: #5E5E5E;
+}
+
+.sub-text-2 {
+    font-size: .85em;
+    color: #8D8D8D;
+}
+
+.sub-text-3 {
+    font-size: .8em;
+    color: #A3A3A3;
+}
+
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-center-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.safe-area {
+    padding: 40px 0;
+}
+
+.position-center {
+    @include position-center;
+}

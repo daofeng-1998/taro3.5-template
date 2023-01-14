@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'icon-number'; /* Project id 3734627 */
+    src: url('./font/icomoon.eot') format('embedded-opentype'),
+    url('./font/icomoon.svg') format('svg'),
+    url('./font/icomoon.ttf') format('truetype'),
+    url('./font/icomoon.woff') format('woff');
+}
+
+.icon-number {
+    font-family: 'icon-number' !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-n-0:before {
+    content: '\e900';
+}
+
+.icon-n-1:before {
+    content: '\e901';
+}
+
+.icon-n-2:before {
+    content: '\e902';
+}
+
+.icon-n-3:before {
+    content: '\e903';
+}
+
+.icon-n-4:before {
+    content: '\e904';
+}
+
+.icon-n-5:before {
+    content: '\e905';
+}
+
+.icon-n-6:before {
+    content: '\e906';
+}
+
+.icon-n-7:before {
+    content: '\e907';
+}
+
+.icon-n-8:before {
+    content: '\e908';
+}
+
+.icon-n-9:before {
+    content: '\e909';
+}
+
+.icon-n-dot:before {
+    content: '\e90a';
+}
+
+.icon-n-comma:before {
+    content: '\e90b';
+}

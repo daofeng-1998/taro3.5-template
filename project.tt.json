@@ -1,0 +1,13 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "ts-template",
+  "description": "TS项目基础模板",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}

@@ -1,0 +1,13 @@
+:root,
+page {
+    --notify-success: var(--success);
+    --notify-danger: var(--danger);
+    --notify-info: var(--info);
+    --notify-warning: var(--warning);
+
+    // 顶部和底部的padding
+    --notify-padding-vertical: 15px;
+
+    // 左右两边的padding
+    --notify-padding-horizontal: 15px;
+}

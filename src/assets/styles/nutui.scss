@@ -1,0 +1,98 @@
+page,
+.taro_page {
+    .nut-button--disabled {
+        opacity: 0.5 !important;
+    }
+
+    // 重置h5状态tabbar异常
+    .weui-tabbar__item > span {
+        display: block !important;
+        height: max-content;
+
+        .weui-tabbar__icon {
+            vertical-align: middle;
+        }
+    }
+
+    .nut-inputnumber {
+        .nut-inputnumber__icon {
+            font-size: 50px;
+        }
+    }
+
+    .nut-price {
+        padding-top: 10px;
+    }
+
+    .nut-tabs.horizontal {
+
+        .nut-tabs__content {
+            flex: 1;
+            height: 0;
+
+            .nut-tabpane {
+                background-color: var(--cascader-bg);
+                padding: 0;
+            }
+        }
+    }
+
+    .nut-cascader{
+        .nut-tabs__content{
+            height: auto !important;
+        }
+    }
+
+    .nut-form {
+        //.nut-cell {
+        //    align-items: center;
+        //}
+
+        .nut-cell-group__warp {
+            margin: 0;
+        }
+
+        &-item {
+            .nut-form-item__body__slots {
+                color: #000;
+            }
+        }
+    }
+
+    .app-page .nut-cell {
+
+        &:after {
+            left: 32px;
+            right: 32px;
+        }
+    }
+
+    .app-page .nut-switch {
+        transition: all .3s;
+
+        &.nut-switch-base.switch-open .switch-button {
+            transform: translateX(110%);
+        }
+    }
+
+    .nut-textarea {
+        &.empty {
+            .nut-textarea__textarea {
+                color: #808080;
+            }
+        }
+    }
+
+    .text-preview {
+        color: #000;
+
+        &.empty {
+            color: #808080;
+        }
+    }
+
+    .nut-empty-description{
+        margin: 10rpx 0;
+    }
+
+}

@@ -1,0 +1,9 @@
+/src/vender
+/dist
+/node_modules
+/src/index.html
+
+**/*.eot
+**/*.svg
+**/*.ttf
+**/*.woff
