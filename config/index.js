@@ -2,6 +2,11 @@ const path = require('path');
 
 const env = process.env.TARO_ENV; // 编译时环境
 
+const designWidth = (input) => {
+    const isNutUi = input.file.replace(/\\+/g, '/').includes('@nutui/nutui-taro');
+    return isNutUi ? 375 : 750;
+};
+
 const config = {
     compiler: {
         type: 'webpack5',
@@ -60,10 +65,7 @@ const config = {
             pxtransform: {
                 enable: true,
                 config: {
-                    designWidth(input) {
-                        const isNutUi = input.file.replace(/\\+/g, '/').includes('@nutui/nutui-taro');
-                        return isNutUi ? 375 : 750;
-                    },
+                    designWidth,
                 },
             },
             url: {
@@ -92,10 +94,7 @@ const config = {
             pxtransform: {
                 enable: true,
                 config: {
-                    designWidth(input) {
-                        const isNutUi = input.file.replace(/\\+/g, '/').includes('@nutui/nutui-taro');
-                        return isNutUi ? 375 : 750;
-                    },
+                    designWidth,
                 },
             },
             autoprefixer: {
