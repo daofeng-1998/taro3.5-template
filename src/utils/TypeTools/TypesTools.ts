@@ -8,32 +8,44 @@ export type BASE_TYPE = string | number | boolean | undefined | symbol | null;
  * 是否为基础数据类型
  * @param value
  */
-export const isBaseType = (value: any): value is BASE_TYPE => {
+export function isBaseType(value: any): value is BASE_TYPE {
     return value == null ? true : BASE_TYPE_ARRAY.includes(typeof value);
-};
+}
 
-export const isString = (value: any): value is string => typeof value === 'string';
+export function isString(value: any): value is string {
+    return typeof value === 'string';
+}
 
-export const isNumber = (value: any): value is number => typeof value === 'number';
+export function isNumber(value: any): value is number {
+    return typeof value === 'number';
+}
 
-export const isBoolean = (value: any): value is boolean => typeof value === 'boolean';
+export function isBoolean(value: any): value is boolean {
+    return typeof value === 'boolean';
+}
 
-export const isSymbol = (value: any): value is symbol => typeof value === 'symbol';
+export function isSymbol(value: any): value is symbol {
+    return typeof value === 'symbol';
+}
 
-export const isUndefined = (value: any): value is undefined => value === undefined;
+export function isUndefined(value: any): value is undefined {
+    return value === undefined;
+}
 
-export const isNull = (value: any): value is null => value === null;
+export function isNull(value: any): value is null {
+    return value === null;
+}
 
-export const isNullOrUndefined = (value: any): value is null | undefined => {
+export function isNullOrUndefined(value: any): value is null | undefined {
     return isNull(value) || isUndefined(value);
-};
+}
 
 /**
  * 判断多个数据类型是否一致
  * @param target
  * @param objects
  */
-export const isFamily = (target: any, ...objects: any[]): boolean => {
+export function isFamily(target: any, ...objects: any[]): boolean {
     if (objects.length === 0)
         return true;
 
@@ -42,4 +54,4 @@ export const isFamily = (target: any, ...objects: any[]): boolean => {
     return objects.every((item) => {
         return base === (isNull(item) ? 'null' : typeof item);
     });
-};
+}

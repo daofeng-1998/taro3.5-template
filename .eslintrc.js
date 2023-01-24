@@ -2,6 +2,8 @@ module.exports = {
     extends: '@antfu',
     plugins: ['unused-imports'],
     rules: {
+        'no-global-assign': 'off',
+        'no-prototype-builtins': 'off',
         'no-extend-native': 'off',
         'unused-imports/no-unused-imports': 'error',
         '@typescript-eslint/comma-dangle': ['error', {

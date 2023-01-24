@@ -4,14 +4,14 @@ import { isBaseType, isNullOrUndefined } from '@/utils/TypeTools/TypesTools';
 /**
  * 判断是否为空对象
  */
-export const isEmptyObject = (obj: object | null | undefined) => {
+export function isEmptyObject(obj: object | null | undefined) {
     return isNullOrUndefined(obj) || Object.keys(obj).length === 0;
-};
+}
 
 /**
  * 判断任意数据类型是否相等
  */
-export const isSame = (object: any, target: any): boolean => {
+export function isSame(object: any, target: any): boolean {
     if (isBaseType(object) && isBaseType(target)) {
         if (Number.isNaN(object) && Number.isNaN(target))
             return true;
@@ -39,13 +39,13 @@ export const isSame = (object: any, target: any): boolean => {
     return sourceKeys.every((key) => {
         return isSame(object[key], target[key]);
     });
-};
+}
 
 /**
  * 深拷贝
  * @param target
  */
-export const deepClone = <T,>(target: T): T => {
+export function deepClone<T,>(target: T): T {
     if (isBaseType(target)) {
         return target;
     } else if (Array.isArray(target)) {
@@ -63,4 +63,4 @@ export const deepClone = <T,>(target: T): T => {
         // @ts-ignore
         return obj;
     }
-};
+}

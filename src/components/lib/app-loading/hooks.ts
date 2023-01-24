@@ -1,6 +1,5 @@
 import { useComponentState } from '@/components/lib/script/component-states';
 import { SYMBOL_LOADING } from '@/components/lib/script/Symbols';
-import { exactTimeout } from '@/utils/PlatformTools';
 
 export const newLoadingState = () => ({
     show: false,
@@ -55,7 +54,7 @@ export const useLoading = () => {
         delay = 100
     ) => {
         return async function (...args: P) {
-            const timer = exactTimeout(show, delay);
+            const timer = setTimeout(show, delay);
             try {
                 return await func(...args);
             } finally {

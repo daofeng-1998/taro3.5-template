@@ -1,7 +1,8 @@
+import qs from 'qs';
 import { HttpError } from '@/lib/network/request/errors/http-error';
 import type { HttpRequest } from '@/lib/network/request/http-request';
 import Interceptor from '@/lib/network/request/interceptor';
-import qs from '@/lib/query-string/qs';
+import { getErrorMessage } from '@/utils/CommonTools';
 
 type MethodOptions = HttpRequest.IRequestMethodOptions;
 
@@ -146,8 +147,7 @@ export class HttpCore<RS, PRS = RS & { options: HttpRequest.IRequestOptions },> 
 
             if (queryString.length > 0) {
                 newOptions.url = newOptions.url
-                    .concat(newOptions.url.endsWith('?') ? '' : '?')
-                    .concat(queryString);
+                    .concat(newOptions.url.endsWith('?') ? queryString : `?${queryString}`);
             }
         }
 
@@ -166,7 +166,7 @@ export class HttpCore<RS, PRS = RS & { options: HttpRequest.IRequestOptions },> 
                 options,
             } as PRS;
         }).catch((error) => {
-            const httpError = new HttpError(error.errMsg ?? error.message ?? error);
+            const httpError = new HttpError(getErrorMessage(error));
             httpError.options = options;
             return Promise.reject(httpError);
         });

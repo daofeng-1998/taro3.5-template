@@ -1,6 +1,5 @@
 import Taro from '@tarojs/taro';
 import { promisify } from '@/utils/AsyncTool';
-import { exactTimeout } from '@/utils/PlatformTools';
 
 export const asyncRequest = promisify(Taro.request);
 
@@ -10,8 +9,8 @@ export const asyncBack = promisify(Taro.navigateBack);
 export const asyncRedirect = promisify(Taro.redirectTo);
 export const asyncRelunch = promisify(Taro.reLaunch);
 
-export const asyncSleep = (time: number) => {
+export function asyncSleep(time: number) {
     return new Promise((resolve) => {
-        exactTimeout(resolve, time);
+        setTimeout(resolve, time);
     });
-};
+}

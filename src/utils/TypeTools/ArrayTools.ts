@@ -1,6 +1,6 @@
 import { isSame } from '@/utils/TypeTools/ObjectTools';
 
-export const isSameArray = (array: Array<any>, target: Array<any>): boolean => {
+export function isSameArray(array: Array<any>, target: Array<any>): boolean {
     if (!Array.isArray(array) || !Array.isArray(target))
         return false;
 
@@ -10,4 +10,4 @@ export const isSameArray = (array: Array<any>, target: Array<any>): boolean => {
     return array.every((item, index) => {
         return isSame(item, target[index]);
     });
-};
+}

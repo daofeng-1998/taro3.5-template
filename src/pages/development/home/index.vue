@@ -5,7 +5,6 @@
 import Taro from '@tarojs/taro';
 import { ref } from 'vue';
 import AppPage from '@/components/lib/app-page/index.vue';
-import { er } from '@/utils/AsyncTool';
 import { useFormData } from '@/hooks/use-lib';
 import { useLoading } from '@/components/lib/app-loading/hooks';
 import { useDialog } from '@/components/lib/app-dialog/hooks';
@@ -20,12 +19,12 @@ const Loading = useLoading();
 const dialog = useDialog();
 const notify = useNotify();
 
-const showLoading = er(() => {
+const showLoading = () => {
     Loading.show();
     setTimeout(() => {
         Loading.hide();
     }, 3000);
-});
+};
 
 const showDialog = () => {
     dialog.show({

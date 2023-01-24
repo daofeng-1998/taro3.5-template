@@ -1,6 +1,5 @@
 import { useComponentState } from '@/components/lib/script/component-states';
 import { SYMBOL_NOTIFY } from '@/components/lib/script/Symbols';
-import { exactTimeout } from '@/utils/PlatformTools';
 import { isNumber } from '@/utils/TypeTools/TypesTools';
 
 export const newNotifyState = (): INotifyState => ({
@@ -39,12 +38,12 @@ export const useNotify = () => {
 
         // @ts-ignore 校验函数已经确定一定是number
         if (isNumber(state.value.duration) && state.value.duration > 0)
-            timeout = exactTimeout(hide, state.value.duration);
+            timeout = setTimeout(hide, state.value.duration);
     };
 
     const info = (options: notifyParam) => {
         const o = typeof options === 'string'
-            ? { msg: options, }
+            ? { msg: options }
             : options;
 
         show({
@@ -55,7 +54,7 @@ export const useNotify = () => {
 
     const success = (options: notifyParam) => {
         const o = typeof options === 'string'
-            ? { msg: options, }
+            ? { msg: options }
             : options;
 
         show({
@@ -66,7 +65,7 @@ export const useNotify = () => {
 
     const danger = (options: notifyParam) => {
         const o = typeof options === 'string'
-            ? { msg: options, }
+            ? { msg: options }
             : options;
         show({
             ...o,
@@ -76,7 +75,7 @@ export const useNotify = () => {
 
     const warning = (options: notifyParam) => {
         const o = typeof options === 'string'
-            ? { msg: options, }
+            ? { msg: options }
             : options;
         show({
             ...o,

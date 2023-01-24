@@ -7,7 +7,7 @@ const CanvasUtils = {
     // 处理文字多出省略号显示
     dealWords(options) {
         options.ctx.beginPath();
-        if (process.env.TARO_ENV == 'h5') {
+        if (process.env.TARO_ENV === 'h5') {
             options.ctx.fontSize = options.fontSize ?? options.ctx.fontSize;// 设置字体大小
             options.ctx.fillStyle = options.fillStyle ?? options.ctx.fillStyle;// 设置字体大小
         } else {
@@ -65,12 +65,10 @@ const CanvasUtils = {
         // eslint-disable-next-line prefer-rest-params,@typescript-eslint/no-unused-vars
         const [_, ...params] = arguments;
         if (process.env.TARO_ENV !== 'h5') {
-            if (String(imageResource).toLowerCase().includes(';base64,')) {
-                const imageUrl = await writeFile(imageResource);
-                params[0] = imageUrl;
-            } else if (String(imageResource).startsWith('http://') || String(imageResource).startsWith('https://')) {
-                params[0] = (await Taro.getImageInfo({ src: imageResource, })).path;
-            }
+            if (String(imageResource).toLowerCase().includes(';base64,'))
+                params[0] = await writeFile(imageResource);
+            else if (String(imageResource).startsWith('http://') || String(imageResource).startsWith('https://'))
+                params[0] = (await Taro.getImageInfo({ src: imageResource })).path;
         } else {
             const image = new Image(dWidth, dHeight);
             image.src = imageResource;
