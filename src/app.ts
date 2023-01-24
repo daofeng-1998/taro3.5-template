@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import './app.scss';
 import nutui from '@/plugins/nutui';
+import './polyfill';
 
 // 导入自定义组件状态，需要优先导入
 import '@/components/lib/script/component-states';

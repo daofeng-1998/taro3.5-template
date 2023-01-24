@@ -97,14 +97,21 @@ const onSms = () => {
         const timeout = setTimeout(() => clearTimeout(timeout));
     }, 1000);
 };
+
+const onTestLog = () => {
+    console.log('test log');
+};
 </script>
 
 <script lang="ts">
-export default { name: 'Home', };
+export default { name: 'Home' };
 </script>
 
 <template>
     <AppPage>
+        <nut-button @click="onTestLog">
+            log测试
+        </nut-button>
         <nut-input
             v-model="formData.password"
             :border="false"
