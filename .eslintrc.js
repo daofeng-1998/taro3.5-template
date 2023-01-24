@@ -1,9 +1,12 @@
 module.exports = {
     extends: '@antfu',
+    plugins: ['unused-imports'],
     rules: {
+        'no-extend-native': 'off',
+        'unused-imports/no-unused-imports': 'error',
         '@typescript-eslint/comma-dangle': ['error', {
             generics: 'always', // 强制泛型尾部追加逗号
-            objects: 'always',
+            objects: 'always-multiline',
         }],
         'antfu/if-newline': 'off',
         'eqeqeq': 'warn',
@@ -14,7 +17,6 @@ module.exports = {
         'vue/html-indent': ['error', 4],
         '@typescript-eslint/semi': ['error', 'always'],
         '@typescript-eslint/indent': ['error', 4],
-
         'semi': ['error', 'always'],
         'prefer-promise-reject-errors': 'off',
         'no-debugger': 'warn',
