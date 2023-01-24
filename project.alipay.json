@@ -1,3 +1,4 @@
 {
-    "enableAppxNg": true
+    "enableAppxNg": true,
+    "component2": true
 }
