@@ -1,27 +1,30 @@
 import type { ComputedRef, Ref, UnwrapNestedRefs } from 'vue';
-import { computed, customRef, reactive, ref } from 'vue';
-import type { FormData, useFormOptions } from '@/hooks/hooks';
+import { computed, customRef, reactive, ref, toRefs } from 'vue';
+import Decimal from 'decimal.js';
+import type { Data, FormData, useFormOptions } from '@/hooks/hooks';
 import { mergeFunc } from '@/utils/TypeTools/FunctionTools';
-import { BASE_TYPE_ARRAY } from '@/utils/TypeTools/TypesTools';
+import { BASE_TYPE_ARRAY, isNullOrUndefined } from '@/utils/TypeTools/TypesTools';
+import { useInterval } from '@/hooks/shared/useInterval';
 
-export const useVModel = <T,>(props: Object, key: string, emit: Function) => {
-    return computed<T>({
+export function useVModel<P extends Data, >(props: P, key: keyof P, emit: Function) {
+    return computed({
         get: () => props[key],
-        set: val => emit(`update:${key}`, val),
+        set: val => emit(`update:${String(key)}`, val),
     });
-};
+}
 
 /**
  * 对数组求和
  * @param list
  * @param field
  */
-export const useSumForList = <T,>(
-    list: T[],
+export function useSumForList<T,>(
+    list: T[] | (() => T[]),
     field?: keyof T | ((item: T) => number)
-): ComputedRef<number> => {
+): ComputedRef<number> {
+    const targetIsFunc = typeof list === 'function';
     const isFunc = typeof field === 'function';
-    const isEmpty = !!field;
+    const isEmpty = isNullOrUndefined(field);
 
     return computed(() => {
         const arr = targetIsFunc ? list() : list;
@@ -32,22 +35,21 @@ export const useSumForList = <T,>(
             }, new Decimal(0))
             .toNumber();
     });
-};
+}
 
 /**
  * 使用一个表单数据对象
  * @param newData
  */
-export const useFormData = <D extends object, R,>(newData: () => D): [UnwrapNestedRefs<D>, () => void, Ref<R | null>] => {
+export function useFormData<D extends object, R, >(newData: () => D): [UnwrapNestedRefs<D>, () => void, Ref<R | null>] {
     const data = reactive(newData());
 
-    const reset = () => {
-        Object.assign(data, newData());
-    };
-    return [data, reset, ref(null)];
-};
+    const reset = () => Object.assign(data, newData());
 
-export const useForm = <F extends object,>(data: useFormOptions<F>): [UnwrapNestedRefs<FormData<F>>, () => void] => {
+    return [data, reset, ref(null)];
+}
+
+export function useForm<F extends object, >(data: useFormOptions<F>): [UnwrapNestedRefs<FormData<F>>, () => void] {
     // 基本数据类型 + function
     const dataTypes = BASE_TYPE_ARRAY.concat('function');
 
@@ -86,13 +88,13 @@ export const useForm = <F extends object,>(data: useFormOptions<F>): [UnwrapNest
 
     // @ts-ignore
     return [formData, reset];
-};
+}
 
 /**
  * 创建一个受控ref
  * @param value
  */
-export const useDelayRef = <T,>(value: T): [Ref<T>, () => void] => {
+export function useDelayRef<T, >(value: T): [Ref<T>, () => void] {
     let update;
 
     const state = customRef<T>((track, trigger) => {
@@ -104,4 +106,28 @@ export const useDelayRef = <T,>(value: T): [Ref<T>, () => void] => {
     });
 
     return [state, update];
-};
+}
+
+export function useCountDown(interval = 1000) {
+    const state = reactive({
+        count: 0,
+    });
+
+    const { isActive, resume, pause } = useInterval(() => {
+        --state.count <= 0 && pause();
+    }, interval);
+
+    const action = (count: number) => {
+        if (isActive.value || count <= 0) return;
+        isActive.value = true;
+        state.count = count;
+
+        resume();
+    };
+
+    return {
+        isActive,
+        ...toRefs(state),
+        action,
+    };
+}
