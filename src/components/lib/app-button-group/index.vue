@@ -5,7 +5,7 @@
 </script>
 
 <script lang="ts">
-export default { name: 'AppButtonGroup', };
+export default { name: 'AppButtonGroup' };
 </script>
 
 <template>

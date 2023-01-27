@@ -107,7 +107,7 @@ if (env === 'h5')
 </script>
 
 <script lang="ts">
-export default { name: 'AppDrag', };
+export default { name: 'AppDrag' };
 </script>
 
 <template>

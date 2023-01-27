@@ -35,7 +35,7 @@ const onSelect = (index) => {
     if (state.selectedIndex[index])
         state.selectedIndex[index].checked = !state.selectedIndex[index].checked;
     else
-        state.selectedIndex[index] = { checked: true, };
+        state.selectedIndex[index] = { checked: true };
 };
 
 const onConfirm = () => {
@@ -63,7 +63,7 @@ const onScrollToLower = () => {
 </script>
 
 <script lang="ts">
-export default { name: 'AppSelector', };
+export default { name: 'AppSelector' };
 </script>
 
 <template>

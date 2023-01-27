@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<{
 </script>
 
 <script lang="ts">
-export default { name: 'AppAddressCard', };
+export default { name: 'AppAddressCard' };
 </script>
 
 <template>

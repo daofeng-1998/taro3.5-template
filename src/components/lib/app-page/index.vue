@@ -21,7 +21,7 @@ const notifyState = useComponentState<INotifyState>(SYMBOL_NOTIFY);
 </script>
 
 <script lang="ts">
-export default { name: 'AppPage', };
+export default { name: 'AppPage' };
 </script>
 
 <!-- 页面包裹容器 -->

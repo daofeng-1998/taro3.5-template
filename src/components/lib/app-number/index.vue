@@ -75,7 +75,7 @@ const numbers = computed(() => {
 </script>
 
 <script lang="ts">
-export default { name: 'AppNumber', };
+export default { name: 'AppNumber' };
 </script>
 
 <template>

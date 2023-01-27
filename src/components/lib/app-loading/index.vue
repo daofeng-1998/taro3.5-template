@@ -24,7 +24,7 @@ const visible = ref(vShow);
 </script>
 
 <script lang="ts">
-export default { name: 'AppLoading', };
+export default { name: 'AppLoading' };
 </script>
 
 <template>

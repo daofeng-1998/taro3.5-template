@@ -3,9 +3,8 @@
     setup
 >
 import Taro from '@tarojs/taro';
-import { ref } from 'vue';
 import AppPage from '@/components/lib/app-page/index.vue';
-import { useFormData } from '@/hooks/use-lib';
+import { useCountDown, useFormData } from '@/hooks/use-lib';
 import { useLoading } from '@/components/lib/app-loading/hooks';
 import { useDialog } from '@/components/lib/app-dialog/hooks';
 import { useNotify } from '@/components/lib/app-notify/hooks';
@@ -79,22 +78,10 @@ const [formData, reset] = useFormData(() => ({
     password: '',
 }));
 
-const smsDisabled = ref(false);
-const smsText = ref('发送验证码');
+const { action, isActive, count } = useCountDown();
 
 const onSms = () => {
-    let i = 59;
-    smsDisabled.value = true;
-    smsText.value = `${i--}s`;
-    const interval = setInterval(() => {
-        smsText.value = `${i}s`;
-        if (i-- < 1) {
-            smsDisabled.value = false;
-            clearInterval(interval);
-            smsText.value = '发送验证码';
-        }
-        const timeout = setTimeout(() => clearTimeout(timeout));
-    }, 1000);
+    action(10);
 };
 
 const onTestLog = () => {
@@ -164,11 +151,11 @@ export default { name: 'Home' };
         <nut-cell-group title="工具测试">
             <nut-cell title="倒计时">
                 <nut-button
-                    :disabled="smsDisabled"
+                    :disabled="isActive"
                     size="small"
                     @click="onSms"
                 >
-                    {{ smsText }}
+                    {{ isActive ? `剩余${count}秒` : '获取验证码' }}
                 </nut-button>
             </nut-cell>
         </nut-cell-group>

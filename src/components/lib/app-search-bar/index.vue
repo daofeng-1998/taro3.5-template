@@ -39,7 +39,7 @@ const onClear = () => {
 </script>
 
 <script lang="ts">
-export default { name: 'AppSearchBar', };
+export default { name: 'AppSearchBar' };
 </script>
 
 <template>

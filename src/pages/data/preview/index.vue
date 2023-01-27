@@ -11,7 +11,7 @@ definePageConfig({
 </script>
 
 <script lang="ts">
-export default { name: 'Preview', };
+export default { name: 'Preview' };
 </script>
 
 <template>

@@ -33,7 +33,7 @@ const testDelayState = () => {
     });
 };
 
-const normalState = ref([{ age: 8, }]);
+const normalState = ref([{ age: 8 }]);
 watch(normalState.value, (newValue) => {
     console.log('-----normalState发生改变-----');
     console.log(newValue);

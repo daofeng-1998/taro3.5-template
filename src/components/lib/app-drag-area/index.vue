@@ -52,7 +52,7 @@ if (env === 'h5') {
 </script>
 
 <script lang="ts">
-export default { name: 'AppDragArea', };
+export default { name: 'AppDragArea' };
 </script>
 
 <template>

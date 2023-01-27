@@ -29,7 +29,7 @@ const onClick = (index) => {
 </script>
 
 <script lang="ts">
-export default { name: 'AppTabPage', };
+export default { name: 'AppTabPage' };
 </script>
 
 <template>

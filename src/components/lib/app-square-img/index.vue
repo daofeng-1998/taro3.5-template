@@ -17,7 +17,7 @@ withDefaults(defineProps<{
 </script>
 
 <script lang="ts">
-export default { name: 'AppSquareImg', };
+export default { name: 'AppSquareImg' };
 </script>
 
 <template>

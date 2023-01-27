@@ -10,7 +10,7 @@ defineProps<IPros>();
 </script>
 
 <script lang="ts">
-export default { name: 'AppFulls', };
+export default { name: 'AppFulls' };
 </script>
 
 <template>

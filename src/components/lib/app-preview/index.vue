@@ -18,7 +18,7 @@ provide('label-width', computed(() => props.labelWidth));
 </script>
 
 <script lang="ts">
-export default { name: 'AppPreview', };
+export default { name: 'AppPreview' };
 </script>
 
 <template>

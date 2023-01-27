@@ -15,7 +15,7 @@ withDefaults(defineProps<{
 </script>
 
 <script lang="ts">
-export default { name: 'AppNotify', };
+export default { name: 'AppNotify' };
 </script>
 
 <template>

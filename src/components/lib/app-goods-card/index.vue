@@ -67,7 +67,7 @@ const handlePreview: CommonEventFunction = ($event) => {
 </script>
 
 <script lang="ts">
-export default { name: 'AppGoodsCard', };
+export default { name: 'AppGoodsCard' };
 </script>
 
 <template>

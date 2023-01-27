@@ -69,7 +69,7 @@ const onConfirm = () => emit('confirm');
 </script>
 
 <script lang="ts">
-export default { name: 'AppDialog', };
+export default { name: 'AppDialog' };
 </script>
 
 <template>

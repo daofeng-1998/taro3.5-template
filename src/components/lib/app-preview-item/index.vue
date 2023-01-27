@@ -21,7 +21,7 @@ const labelWidth
 </script>
 
 <script lang="ts">
-export default { name: 'AppPreviewItem', };
+export default { name: 'AppPreviewItem' };
 </script>
 
 <template>
