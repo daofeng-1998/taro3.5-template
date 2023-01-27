@@ -52,6 +52,7 @@
 		"@tarojs/taro": "3.5.12",
 		"@tarojs/taro-h5": "3.5.12",
 		"dayjs": "^1.11.7",
+		"decimal.js": "^10.4.3",
 		"pinia": "^2.0.28",
 		"qs": "^6.11.0",
 		"tarojs-router-next": "^3.2.0",

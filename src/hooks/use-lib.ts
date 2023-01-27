@@ -24,10 +24,13 @@ export const useSumForList = <T,>(
     const isEmpty = !!field;
 
     return computed(() => {
-        return list.reduce<number>((pre, item) => {
-            // @ts-ignore
-            return pre + isFunc ? field(item) : (isEmpty ? item : item[field]);
-        }, 0);
+        const arr = targetIsFunc ? list() : list;
+        return arr
+            .reduce((pre, item) => {
+                // @ts-ignore
+                return Decimal.add(pre, isFunc ? field(item) : isEmpty ? item : item[field]);
+            }, new Decimal(0))
+            .toNumber();
     });
 };
 
