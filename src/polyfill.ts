@@ -20,11 +20,10 @@ if (!isFunction(Object.hasOwn)) {
     });
 })();
 
-/*
 // TODO 处理Taro在微信小程序端的setTimeout和setInterval卡顿问题
-(function () {
-    const _setTimeout = globalEnv.setTimeout;
-    const _setInterval = globalEnv.setInterval;
+if (process.env.TARO_ENV === 'weapp') {
+    const _setTimeout = setTimeout;
+    const _setInterval = setInterval;
 
     type _typeTimeout = typeof _setTimeout;
     type _typeInterval = typeof _setInterval;
@@ -37,9 +36,7 @@ if (!isFunction(Object.hasOwn)) {
             else
                 throw new TypeError('setTimeout expects a function as first argument but got string.');
 
-            // if (process.env.TARO_ENV === 'weapp') {
-            //     const inner = _setTimeout(() => clearTimeout(inner));
-            // }
+            const inner = _setTimeout(() => clearTimeout(inner));
         }, args[1], args.slice(2));
     };
 
@@ -51,10 +48,7 @@ if (!isFunction(Object.hasOwn)) {
             else
                 throw new TypeError('setInterval expects a function as first argument but got string.');
 
-            // if (process.env.TARO_ENV === 'weapp') {
-            //     const inner = _setTimeout(() => clearTimeout(inner));
-            // }
+            const inner = _setTimeout(() => clearTimeout(inner));
         }, args[1], args.slice(2));
     };
-})();
-*/
+}
