@@ -11,3 +11,11 @@ declare module '@vue/runtime-core' {
         switchAny: RouterFunc
     }
 }
+
+declare module 'dayjs' {
+    interface Dayjs {
+        formatDate(template?: string): string;
+
+        formatTime(template?: string): string;
+    }
+}

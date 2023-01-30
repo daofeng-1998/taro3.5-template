@@ -1,22 +1,21 @@
+import '@/components/lib/script/component-states';
 import { createApp } from 'vue';
 import './app.scss';
+import dayjs from 'dayjs';
 import nutui from '@/plugins/nutui';
 import './polyfill';
-
-// 导入自定义组件状态，需要优先导入
-import '@/components/lib/script/component-states';
 import store from '@/store';
 import { navigateAny, redirectAny, switchAny } from '@/utils/RouterNext';
+import { dayJsFormat } from '@/plugins/dayjs';
 
-const App = createApp({
-    onShow() {
-    },
-    // 入口组件不需要实现 render 方法，即使实现了也会被 taro 所覆盖
-});
+const App = createApp({});
 
 App
     .use(nutui)
     .use(store);
+
+// dayjs插件扩展
+dayjs.extend(dayJsFormat);
 
 // 挂载全局方法
 Object.assign(App.config.globalProperties, {
